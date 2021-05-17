@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
 import pages.AccountListPage;
+import pages.AddNewAccountPage;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -17,6 +18,7 @@ public class BaseTest {
     LoginPage loginPage;
     HomePage homePage;
     AccountListPage accountListPage;
+    AddNewAccountPage addNewAccountPage;
 
     @BeforeMethod
     public void setUp() {

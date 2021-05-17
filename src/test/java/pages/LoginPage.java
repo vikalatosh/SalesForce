@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
 
@@ -14,6 +15,7 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
         return isExist(LOGIN_BUTTON);
     }
 
