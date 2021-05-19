@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AccountListPage extends BasePage {
-
     public static final By NEW_BUTTON = By.cssSelector("[title='New']");
     By icon = By.cssSelector("img[title='Accounts']");
 
@@ -14,7 +13,6 @@ public class AccountListPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(icon));
         return isExist(icon);
     }
 
@@ -23,8 +21,8 @@ public class AccountListPage extends BasePage {
         return this;
     }
 
-    public AccountListPage clickButtonNew() {
+    public AccountModal clickNew() {
         driver.findElement(NEW_BUTTON).click();
-        return this;
+        return new AccountModal(driver);
     }
 }

@@ -1,5 +1,6 @@
 package tests;
 
+import models.Account;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
@@ -7,7 +8,7 @@ import static org.testng.Assert.assertTrue;
 public class AccountTest extends BaseTest {
 
     @Test
-    public void addNewAccount() {
+    public void accountShouldBeCreated() {
         boolean isOpened = loginPage
                 .open()
                 .isPageOpened();
@@ -16,17 +17,18 @@ public class AccountTest extends BaseTest {
                 .login("latosh.viktorija-xyh7@force.com", "password0")
                 .isPageOpened();
         assertTrue(isOpened, "Home Page не открылась");
-//        homePage
-//                .contextBarOpen("Accounts");
-//        accountListPage.open();
-        isOpened = addNewAccountPage
-                .isPageOpened();
-        assertTrue(isOpened, "AccountList Page не открылась");
-        accountListPage.clickButtonNew();
-        isOpened = addNewAccountPage
-                .isPageOpened();
-        assertTrue(isOpened, "AddNewAccount Page не открылась");
-        addNewAccountPage.addNewAccount("ERIP", "https://raschet.by/", "+375336575939",
-                "200", "6 vulica Talstoha");
+        //FACTORY
+        //BUILDER
+        //RANDOM DATA
+        Account account = new Account("Test", "375336575939", "tut.by", "100",
+                "Minsk", "Minsk", "321123", "Belarus", "123123",
+                "Russia", "Moscow", "Moscow", "There is test",
+                "Talstoha Street", "Tverskaya Street");
+        accountListPage
+                .open()
+                .clickNew()
+                .create(account)
+                .openDetailsTab()
+                .validateAccount(account);
     }
 }

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
-
     public static final By LOGIN_INPUT = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By LOGIN_BUTTON = By.id("Login");
@@ -15,7 +14,6 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
         return isExist(LOGIN_BUTTON);
     }
 
