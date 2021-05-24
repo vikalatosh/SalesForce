@@ -2,12 +2,13 @@ package tests;
 
 import models.Account;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
 public class AccountTest extends BaseTest {
 
-    @Test
+    @Test (description = "Account should be created")
     public void accountShouldBeCreated() {
         boolean isOpened = loginPage
                 .open()

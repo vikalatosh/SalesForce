@@ -10,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public abstract class BasePage {
+    String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//*[@slot='outputField']";
     public static final String BASE_URL = "https://erip.my.salesforce.com/";
     WebDriver driver;
     WebDriverWait wait;
@@ -32,40 +33,19 @@ public abstract class BasePage {
         }
     }
 
-    public void validateInput(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']" +
-                "/ancestor::force-record-layout-item//lightning-formatted-text";
+    public void validateElement(String label, String expected) {
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected, "Input text is not correct"
+                expected,
+                "Element "+ label + " text is not correct"
         );
     }
 
-    public void validateAHref(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']" +
-                "/ancestor::force-record-layout-item//a";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected, "A text is not correct"
-        );
-    }
-
-    public void validateAddress(String label, String[] expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']" +
-                "/ancestor::force-record-layout-item//lightning-formatted-address/a";
+    public void validateElements(String label, String[] expected) {
         String addressText = driver.findElement(By.xpath(String.format(locator, label))).getText();
         for (String s : expected) {
             boolean isAddressCorrect = addressText.contains(s);
             assertTrue(isAddressCorrect, "Address text is not correct");
         }
-    }
-
-    public void validateNumber(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']" +
-                "/ancestor::force-record-layout-item//lightning-formatted-number";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected, "Employees number is not correct"
-        );
     }
 }
