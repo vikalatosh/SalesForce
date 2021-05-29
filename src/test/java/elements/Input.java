@@ -8,8 +8,8 @@ import static java.lang.String.format;
 public class Input {
     WebDriver driver;
     String label;
-    String inputLocator = "//*[contains(@class,'modal-body')]//span[text()='%s']/" +
-            "ancestor::div[contains(@class, 'uiInput')]//input";
+    String inputLocator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::" +
+            "*[contains(@class,'slds-form-element')]/div/input";
 
     public Input(WebDriver driver, String label) {
         this.driver = driver;

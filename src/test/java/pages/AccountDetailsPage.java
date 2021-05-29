@@ -23,16 +23,16 @@ public class AccountDetailsPage extends BasePage {
     }
 
     public void validateAccount(Account account) {
-        validateInput("Account Name", account.getAccountName());
-        validateAHref("Phone", account.getPhone());
-        validateAHref("Website", account.getWebsite());
-        validateNumber("Employees", account.getEmployees());
-        validateInput("Type", "Analyst");
-        validateInput("Industry", "Banking");
-        validateInput("Description", account.getDescription());
-        validateAddress("Billing Address", new String[]{account.getBillingCity(), account.getBillingCountry(),
+        validateElement("Account Name", account.getAccountName());
+        validateElement("Phone", account.getPhone());
+        validateElement("Website", account.getWebsite());
+        validateElement("Employees", account.getEmployees());
+        validateElement("Type", "Analyst");
+        validateElement("Industry", "Banking");
+        validateElement("Description", account.getDescription());
+        validateElements("Billing Address", new String[]{account.getBillingCity(), account.getBillingCountry(),
                 account.getBillingState(), account.getBillingStreet(), account.getBillingZipCode()});
-        validateAddress("Shipping Address", new String[]{account.getShippingCity(), account.getShippingCountry(),
+        validateElements("Shipping Address", new String[]{account.getShippingCity(), account.getShippingCountry(),
                 account.getShippingState(), account.getShippingStreet(), account.getShippingZipCode()});
     }
 }
