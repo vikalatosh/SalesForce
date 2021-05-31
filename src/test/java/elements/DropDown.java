@@ -2,11 +2,9 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DropDown {
     WebDriver driver;
-    WebDriverWait wait;
     String label;
     String optionLocator;
     String locator;
@@ -27,7 +25,6 @@ public class DropDown {
 
     public void select(String option) {
         driver.findElement(By.xpath(String.format(locator, label))).click();
-
         driver.findElement(By.xpath(String.format(optionLocator, option))).click();
     }
 }
