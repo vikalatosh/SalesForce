@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" name="Regression test suite" parallel="tests">
+    <listeners>
+        <listener class-name="tests.base.AnnotationTransformer"/>
+    </listeners>
+    <test name="Thread 1">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ContactTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Thread 2">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="tests.AccountTest"/>
+            <class name="tests.LeadTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite>
