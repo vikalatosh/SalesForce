@@ -2,23 +2,28 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static java.lang.String.format;
+import org.openqa.selenium.WebElement;
 
 public class Input {
     WebDriver driver;
     String label;
-    String inputLocator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::" +
-            "*[contains(@class,'slds-form-element')]/div/input";
+    String locator;
+    String baseInputLocator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::";
 
-    public Input(WebDriver driver, String label) {
+    public Input(WebDriver driver, String label, String page) {
+        if (page.equals("Account")) {
+            locator = baseInputLocator + "div[contains(@class, 'uiInput')]//input";
+        } else {
+            locator = baseInputLocator + "*[contains(@class,'slds-form-element')]/div/input";
+        }
         this.driver = driver;
         this.label = label;
     }
 
     public void write(String text) {
-        System.out.printf("Writing text '%s' into input with label %s%n", text, label);
+        System.out.printf("Writing text '%s' into input with label %s", text, label);
         //JS set style
-        driver.findElement(By.xpath(format(inputLocator, label))).sendKeys(text);
+        WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
+        element.sendKeys(text);
     }
 }

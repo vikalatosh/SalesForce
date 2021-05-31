@@ -10,8 +10,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public abstract class BasePage {
-    String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//*[@slot='outputField']";
     public static final String BASE_URL = "https://erip.my.salesforce.com/";
+    String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//*[@slot='outputField']";
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -37,7 +38,7 @@ public abstract class BasePage {
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
                 expected,
-                "Element "+ label + " text is not correct"
+                "Element " + label + " text is not correct"
         );
     }
 

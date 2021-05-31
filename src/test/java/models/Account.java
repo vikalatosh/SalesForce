@@ -16,6 +16,7 @@ public class Account {
     String description;
     String billingStreet;
     String shippingStreet;
+
     public Account(String accountName, String phone, String website, String employees, String billingCity,
                    String billingState, String billingZipCode, String billingCountry, String shippingZipCode,
                    String shippingCountry, String shippingCity, String shippingState, String description,

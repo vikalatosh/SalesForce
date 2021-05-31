@@ -17,6 +17,7 @@ public class Contact {
     String mailingZipCode;
     String mailingState;
     String mailingCountry;
+
     public Contact(String firstName, String middleName, String lastName, String suffix, String accountName,
                    String title, String email, String phone, String mobile, String department, String fax,
                    String mailingStreet, String mailingCity, String mailingZipCode, String mailingState,

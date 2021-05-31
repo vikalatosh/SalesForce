@@ -25,7 +25,7 @@ public class ContactTest extends BaseTest {
                 "TestTest", "Title", "test@gmail.com", "9379992",
                 "375297365426", "department", "321336516", "6 vulica Talstoha",
                 "Grodno", "220025", "Grodno", "Belarus");
-        contactsListPage
+        contactListPage
                 .open()
                 .clickNew()
                 .create(contact)
