@@ -4,18 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Input {
+public class SFInput {
     WebDriver driver;
     String label;
-    String locator;
-    String baseInputLocator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::";
+    String locator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//input";
 
-    public Input(WebDriver driver, String label, String page) {
-        if (page.equals("Account")) {
-            locator = baseInputLocator + "div[contains(@class, 'uiInput')]//input";
-        } else {
-            locator = baseInputLocator + "*[contains(@class,'slds-form-element')]/div/input";
-        }
+    public SFInput(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
     }
