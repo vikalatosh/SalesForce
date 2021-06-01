@@ -17,6 +17,11 @@ public class Lead {
     String zipCode;
     String state;
     String country;
+    String leadStatus = "Unqualified";
+    String salutation = "Dr.";
+    String rating = "Cold";
+    String industry = "Agriculture";
+    String leadSource = "Advertisement";
 
     public Lead(String firstName, String middleName, String lastName, String suffix, String website, String title,
                 String email, String phone, String mobile, String company, String numberOfEmployees, String street,
@@ -101,5 +106,25 @@ public class Lead {
 
     public String getCountry() {
         return country;
+    }
+
+    public String getLeadStatus() {
+        return leadStatus;
+    }
+
+    public String getSalutation() {
+        return salutation;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getIndustry() {
+        return industry;
+    }
+
+    public String getLeadSource() {
+        return leadSource;
     }
 }

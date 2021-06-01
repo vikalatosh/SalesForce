@@ -16,6 +16,8 @@ public class Account {
     String description;
     String billingStreet;
     String shippingStreet;
+    String type = "Analyst";
+    String industry = "Banking";
 
     public Account(String accountName, String phone, String website, String employees, String billingCity,
                    String billingState, String billingZipCode, String billingCountry, String shippingZipCode,
@@ -96,5 +98,13 @@ public class Account {
 
     public String getShippingStreet() {
         return shippingStreet;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getIndustry() {
+        return industry;
     }
 }
