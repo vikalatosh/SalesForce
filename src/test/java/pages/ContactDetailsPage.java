@@ -25,7 +25,7 @@ public class ContactDetailsPage extends BasePage {
 
     @Step("Validate Contact")
     public void validateContact(Contact contact) {
-        validateElements("Account Name", new String[]{"TestTest"});
+        validateElements("Account Name", new String[]{contact.getAccountName()});
         validateElement("Title", contact.getTitle());
         validateElement("Email", contact.getEmail());
         validateElement("Phone", contact.getPhone());

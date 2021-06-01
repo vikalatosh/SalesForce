@@ -30,8 +30,8 @@ public class AccountDetailsPage extends BasePage {
         validateElement("Phone", account.getPhone());
         validateElement("Website", account.getWebsite());
         validateElement("Employees", account.getEmployees());
-        validateElement("Type", "Analyst");
-        validateElement("Industry", "Banking");
+        validateElement("Type", account.getType());
+        validateElement("Industry", account.getIndustry());
         validateElement("Description", account.getDescription());
         validateElements("Billing Address", new String[]{account.getBillingCity(), account.getBillingCountry(),
                 account.getBillingState(), account.getBillingStreet(), account.getBillingZipCode()});

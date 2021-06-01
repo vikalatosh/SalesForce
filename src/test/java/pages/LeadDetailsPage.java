@@ -24,20 +24,20 @@ public class LeadDetailsPage extends BasePage {
 
     @Step("Validate Lead")
     public void validateLead(Lead lead) {
-        validateElement("Lead Status", "Working");
-        validateElement("Salutation", "Mr.");
-        validateElements("Name", new String[]{"Mr.", lead.getFirstName(), lead.getMiddleName(),
+        validateElement("Lead Status", lead.getLeadStatus());
+        validateElement("Salutation", lead.getSalutation());
+        validateElements("Name", new String[]{lead.getSalutation(), lead.getFirstName(), lead.getMiddleName(),
                 lead.getLastName(), lead.getSuffix()});
         validateElement("Title", lead.getTitle());
         validateElement("Email", lead.getEmail());
         validateElement("Phone", lead.getPhone());
         validateElement("Mobile", lead.getMobile());
-        validateElement("Rating", "Cold");
+        validateElement("Rating", lead.getRating());
         validateElement("Website", lead.getWebsite());
         validateElement("Company", lead.getCompany());
-        validateElement("Industry", "Education");
+        validateElement("Industry", lead.getIndustry());
         validateElement("No. of Employees", lead.getNumberOfEmployees());
-        validateElement("Lead Source", "Customer Event");
+        validateElement("Lead Source", lead.getLeadSource());
         validateElements("Address", new String[]{lead.getCity(), lead.getCountry(),
                 lead.getState(), lead.getStreet(), lead.getZipCode()});
     }

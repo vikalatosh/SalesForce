@@ -1,7 +1,8 @@
 package pages;
 
-import elements.DropDown;
-import elements.Input;
+import elements.LightningDropDown;
+import elements.LightningInput;
+import elements.TextArea;
 import io.qameta.allure.Step;
 import models.Lead;
 import org.openqa.selenium.By;
@@ -22,26 +23,27 @@ public class LeadModal extends BasePage {
 
     @Step("Input data to crate new Lead")
     public LeadDetailsPage create(Lead lead) {
-        new DropDown(driver, "Lead Status", "Lead").select("Working");
-        new DropDown(driver, "Salutation", "Lead").select("Dr.");
-        new Input(driver, "First Name", "Lead").write(lead.getFirstName());
-        new Input(driver, "Middle Name", "Lead").write(lead.getMiddleName());
-        new Input(driver, "Last Name", "Lead").write(lead.getLastName());
-        new Input(driver, "Suffix", "Lead").write(lead.getSuffix());
-        new Input(driver, "Website", "Lead").write(lead.getWebsite());
-        new Input(driver, "Title", "Lead").write(lead.getTitle());
-        new Input(driver, "Email", "Lead").write(lead.getEmail());
-        new Input(driver, "Phone", "Lead").write(lead.getPhone());
-        new Input(driver, "Mobile", "Lead").write(lead.getMobile());
-        new DropDown(driver, "Rating", "Lead").select("Cold");
-        new Input(driver, "Company", "Lead").write(lead.getCompany());
-        new DropDown(driver, "Industry", "Lead").select("Industry");
-        new Input(driver, "No. of Employees", "Lead").write(lead.getNumberOfEmployees());
-        new DropDown(driver, "Lead Source", "Lead").select("Lead Source");
-        new Input(driver, "City", "Lead").write(lead.getCity());
-        new Input(driver, "State/Province", "Lead").write(lead.getState());
-        new Input(driver, "Country", "Lead").write(lead.getCountry());
-        new Input(driver, "Zip/Postal Code", "Lead").write(lead.getZipCode());
+        new LightningDropDown(driver, "Lead Status").select(lead.getLeadStatus());
+        new LightningDropDown(driver, "Salutation").select(lead.getSalutation());
+        new LightningInput(driver, "First Name").write(lead.getFirstName());
+        new LightningInput(driver, "Middle Name").write(lead.getMiddleName());
+        new LightningInput(driver, "Last Name").write(lead.getLastName());
+        new LightningInput(driver, "Suffix").write(lead.getSuffix());
+        new LightningInput(driver, "Website").write(lead.getWebsite());
+        new LightningInput(driver, "Title").write(lead.getTitle());
+        new LightningInput(driver, "Email").write(lead.getEmail());
+        new LightningInput(driver, "Phone").write(lead.getPhone());
+        new LightningInput(driver, "Mobile").write(lead.getMobile());
+        new LightningInput(driver, "Company").write(lead.getCompany());
+        new LightningDropDown(driver, "Rating").select(lead.getRating());
+        new TextArea(driver, "Street").write(lead.getStreet());
+        new LightningDropDown(driver, "Industry").select(lead.getIndustry());
+        new LightningInput(driver, "No. of Employees").write(lead.getNumberOfEmployees());
+        new LightningDropDown(driver, "Lead Source").select(lead.getLeadSource());
+        new LightningInput(driver, "City").write(lead.getCity());
+        new LightningInput(driver, "State/Province").write(lead.getState());
+        new LightningInput(driver, "Country").write(lead.getCountry());
+        new LightningInput(driver, "Zip/Postal Code").write(lead.getZipCode());
         save();
         return new LeadDetailsPage(driver);
     }

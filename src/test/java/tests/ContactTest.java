@@ -21,10 +21,10 @@ public class ContactTest extends BaseTest {
         //FACTORY
         //BUILDER
         //RANDOM DATA
-        Contact contact = new Contact("Tom", "--", "Smith", "12222",
-                "TestTest", "Title", "test@gmail.com", "9379992",
-                "375297365426", "department", "321336516", "6 vulica Talstoha",
-                "Grodno", "220025", "Grodno", "Belarus");
+        Contact contact = new Contact("Tom", "--", "Smith", "12222", "Title",
+                "test@gmail.com", "9379992", "375297365426", "department", "321336516",
+                "6 vulica Talstoha", "Grodno", "220025", "Grodno",
+                "Belarus");
         contactListPage
                 .open()
                 .clickNew()

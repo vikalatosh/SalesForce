@@ -1,7 +1,7 @@
 package pages;
 
-import elements.DropDown;
-import elements.Input;
+import elements.SFDropDown;
+import elements.SFInput;
 import elements.TextArea;
 import io.qameta.allure.Step;
 import models.Account;
@@ -23,20 +23,20 @@ public class AccountModal extends BasePage {
 
     @Step("Input data to crate new Account")
     public AccountDetailsPage create(Account account) {
-        new Input(driver, "Account Name", "Account").write(account.getAccountName());
-        new Input(driver, "Phone", "Account").write(account.getPhone());
-        new Input(driver, "Website", "Account").write(account.getWebsite());
-        new Input(driver, "Employees", "Account").write(account.getEmployees());
-        new Input(driver, "Billing City", "Account").write(account.getBillingCity());
-        new Input(driver, "Billing State/Province", "Account").write(account.getBillingState());
-        new Input(driver, "Billing Zip/Postal Code", "Account").write(account.getBillingZipCode());
-        new Input(driver, "Billing Country", "Account").write(account.getBillingCountry());
-        new Input(driver, "Shipping Zip/Postal Code", "Account").write(account.getShippingZipCode());
-        new Input(driver, "Shipping Country", "Account").write(account.getShippingCountry());
-        new Input(driver, "Shipping City", "Account").write(account.getShippingCity());
-        new Input(driver, "Shipping State/Province", "Account").write(account.getShippingState());
-        new DropDown(driver, "Type", "Account").select("Analyst");
-        new DropDown(driver, "Industry", "Account").select("Banking");
+        new SFInput(driver, "Account Name").write(account.getAccountName());
+        new SFInput(driver, "Phone").write(account.getPhone());
+        new SFInput(driver, "Website").write(account.getWebsite());
+        new SFInput(driver, "Employees").write(account.getEmployees());
+        new SFInput(driver, "Billing City").write(account.getBillingCity());
+        new SFInput(driver, "Billing State/Province").write(account.getBillingState());
+        new SFInput(driver, "Billing Zip/Postal Code").write(account.getBillingZipCode());
+        new SFInput(driver, "Billing Country").write(account.getBillingCountry());
+        new SFInput(driver, "Shipping Zip/Postal Code").write(account.getShippingZipCode());
+        new SFInput(driver, "Shipping Country").write(account.getShippingCountry());
+        new SFInput(driver, "Shipping City").write(account.getShippingCity());
+        new SFInput(driver, "Shipping State/Province").write(account.getShippingState());
+        new SFDropDown(driver, "Type").select(account.getType());
+        new SFDropDown(driver, "Industry").select(account.getIndustry());
         new TextArea(driver, "Description").write(account.getDescription());
         new TextArea(driver, "Billing Street").write(account.getBillingStreet());
         new TextArea(driver, "Shipping Street").write(account.getShippingStreet());
