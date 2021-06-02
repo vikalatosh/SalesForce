@@ -1,5 +1,6 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+@Log4j2
 public abstract class BasePage {
     public static final String BASE_URL = "https://erip.my.salesforce.com/";
     String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//*[@slot='outputField']";

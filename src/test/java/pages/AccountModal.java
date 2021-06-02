@@ -4,10 +4,12 @@ import elements.SFDropDown;
 import elements.SFInput;
 import elements.TextArea;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class AccountModal extends BasePage {
     public static final By SAVE_BUTTON = By.cssSelector("[title='Save']");
     public static final By ACCOUNTMODAL_TITLE = By.xpath("//h2[text()='New Account']");
@@ -18,11 +20,13 @@ public class AccountModal extends BasePage {
 
     @Step("Checking Account modal page open")
     public boolean isPageOpened() {
+        log.info("Checking Account modal page open");
         return isExist(ACCOUNTMODAL_TITLE);
     }
 
-    @Step("Input data to crate new Account")
+    @Step("Input data to create new Account")
     public AccountDetailsPage create(Account account) {
+        log.info("Input data to create new Account");
         new SFInput(driver, "Account Name").write(account.getAccountName());
         new SFInput(driver, "Phone").write(account.getPhone());
         new SFInput(driver, "Website").write(account.getWebsite());
@@ -46,6 +50,7 @@ public class AccountModal extends BasePage {
 
     @Step("Click button Save")
     public void save() {
+        log.info("Click button Save");
         driver.findElement(SAVE_BUTTON).click();
     }
 }

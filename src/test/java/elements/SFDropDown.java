@@ -1,8 +1,10 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class SFDropDown {
     WebDriver driver;
     String label;
@@ -16,6 +18,7 @@ public class SFDropDown {
     }
 
     public void select(String option) {
+        log.debug("Element SF DropDown is not found");
         driver.findElement(By.xpath(String.format(locator, label))).click();
         driver.findElement(By.xpath(String.format(optionLocator, option))).click();
     }

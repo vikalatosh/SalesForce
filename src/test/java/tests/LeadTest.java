@@ -1,11 +1,14 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import models.Lead;
+import models.LeadFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
+@Log4j2
 public class LeadTest extends BaseTest {
     @Test(description = "Lead should be created")
     public void leadShouldBeCreated() {
@@ -20,9 +23,7 @@ public class LeadTest extends BaseTest {
         //FACTORY
         //BUILDER
         //RANDOM DATA
-        Lead lead = new Lead("Joel", "Alfredo", "Tamiz", "1020058", "test.com",
-                "fdhdghgh", "salesforcetest@gmail.com", "5511566", "56165656", "TestRun",
-                "90", "wewvrwa", "gdrgdr", "5846464", "wrrrw", "sgwsg");
+        Lead lead = LeadFactory.get();
         leadListPage
                 .open()
                 .clickNew()
