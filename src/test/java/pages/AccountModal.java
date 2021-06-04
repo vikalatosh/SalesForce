@@ -48,9 +48,9 @@ public class AccountModal extends BasePage {
         return new AccountDetailsPage(driver);
     }
 
-    @Step("Click button Save")
+    @Step("Click the button Save")
     public void save() {
-        log.info("Click button Save");
+        log.info("Click the button Save");
         driver.findElement(SAVE_BUTTON).click();
     }
 }

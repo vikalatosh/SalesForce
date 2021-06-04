@@ -17,9 +17,7 @@ public class SFInput {
     }
 
     public void write(String text) {
-        System.out.printf("Writing text '%s' into input with label %s", text, label);
-        //JS set style
-        log.debug("Element SF Input is not found");
+        log.debug(String.format("Writing text '%s' into input with label %s", text, label));
         WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
         element.sendKeys(text);
     }

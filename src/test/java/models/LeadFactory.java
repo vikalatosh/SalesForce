@@ -1,10 +1,13 @@
 package models;
 
 import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class LeadFactory {
 
     public static Lead get() {
+        log.info("Create new Lead");
         Faker faker = new Faker();
         return Lead.builder()
                 .firstName(faker.name().firstName())

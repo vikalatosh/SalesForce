@@ -14,7 +14,7 @@ public class AccountListPage extends BasePage {
         super(driver);
     }
 
-    @Step("Checkout Accountlist page is open")
+    @Step("Checkout Account list page is open")
     public boolean isPageOpened() {
         log.info("Open Account List page");
         return isExist(icon);
@@ -27,9 +27,9 @@ public class AccountListPage extends BasePage {
         return this;
     }
 
-    @Step("Click button New")
+    @Step("Click the button New")
     public AccountModal clickNew() {
-        log.info("Click button New");
+        log.info("Click the button New");
         driver.findElement(NEW_BUTTON).click();
         return new AccountModal(driver);
     }

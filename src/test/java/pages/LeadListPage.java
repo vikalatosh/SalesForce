@@ -27,9 +27,9 @@ public class LeadListPage extends BasePage {
         return this;
     }
 
-    @Step("Click button New")
+    @Step("Click the button New")
     public LeadModal clickNew() {
-        log.info("Click button New");
+        log.info("Click the button New");
         driver.findElement(NEW_BUTTON).click();
         return new LeadModal(driver);
     }

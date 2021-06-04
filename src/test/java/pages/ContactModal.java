@@ -48,9 +48,9 @@ public class ContactModal extends BasePage {
         return new ContactDetailsPage(driver);
     }
 
-    @Step("Click button Save")
+    @Step("Click the button Save")
     public void save() {
-        log.info("Click button Save");
+        log.info("Click the button Save");
         driver.findElement(SAVE_BUTTON).click();
     }
 }

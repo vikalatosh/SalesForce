@@ -18,7 +18,7 @@ public class SFDropDown {
     }
 
     public void select(String option) {
-        log.debug("Element SF DropDown is not found");
+        log.debug(String.format("Writing text '%s' into input with label %s", option, label));
         driver.findElement(By.xpath(String.format(locator, label))).click();
         driver.findElement(By.xpath(String.format(optionLocator, option))).click();
     }

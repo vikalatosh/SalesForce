@@ -25,9 +25,9 @@ public class ContactListPage extends BasePage {
         return this;
     }
 
-    @Step("Click button New")
+    @Step("Click the button New")
     public ContactModal clickNew() {
-        log.info("Click button New");
+        log.info("Click the button New");
         driver.findElement(NEW_BUTTON).click();
         return new ContactModal(driver);
     }

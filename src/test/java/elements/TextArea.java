@@ -17,9 +17,8 @@ public class TextArea {
     }
 
     public void write(String text) {
-        System.out.printf("Writing text '%s' into textarea with label %s%n", text, label);
+        log.info(String.format("Writing text '%s' into textarea with label %s%n", text, label));
         //JS set style
-        log.debug("Element Textarea is not found");
         driver.findElement(By.xpath(String.format(textareaLocator, label))).sendKeys(text);
     }
 }
