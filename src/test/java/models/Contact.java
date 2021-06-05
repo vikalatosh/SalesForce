@@ -5,7 +5,6 @@ public class Contact {
     String middleName;
     String lastName;
     String suffix;
-    String accountName;
     String title;
     String email;
     String phone;
@@ -17,15 +16,16 @@ public class Contact {
     String mailingZipCode;
     String mailingState;
     String mailingCountry;
-    public Contact(String firstName, String middleName, String lastName, String suffix, String accountName,
-                   String title, String email, String phone, String mobile, String department, String fax,
-                   String mailingStreet, String mailingCity, String mailingZipCode, String mailingState,
-                   String mailingCountry) {
+    String salutation = "Mr.";
+    String accountName = "TestTest";
+
+    public Contact(String firstName, String middleName, String lastName, String suffix, String title, String email,
+                   String phone, String mobile, String department, String fax, String mailingStreet, String mailingCity,
+                   String mailingZipCode, String mailingState, String mailingCountry) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.suffix = suffix;
-        this.accountName = accountName;
         this.title = title;
         this.email = email;
         this.phone = phone;
@@ -97,5 +97,13 @@ public class Contact {
 
     public String getMailingCountry() {
         return mailingCountry;
+    }
+
+    public String getSalutation() {
+        return salutation;
+    }
+
+    public String getAccountName() {
+        return accountName;
     }
 }

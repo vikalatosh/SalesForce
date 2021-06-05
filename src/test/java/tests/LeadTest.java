@@ -1,15 +1,14 @@
 package tests;
 
-import models.Account;
+import models.Lead;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
-public class AccountTest extends BaseTest {
-
-    @Test(description = "Account should be created")
-    public void accountShouldBeCreated() {
+public class LeadTest extends BaseTest {
+    @Test(description = "Lead should be created")
+    public void leadShouldBeCreated() {
         boolean isOpened = loginPage
                 .open()
                 .isPageOpened();
@@ -21,15 +20,14 @@ public class AccountTest extends BaseTest {
         //FACTORY
         //BUILDER
         //RANDOM DATA
-        Account account = new Account("Test", "375336575939", "tut.by", "100",
-                "Minsk", "Minsk", "321123", "Belarus", "123123",
-                "Russia", "Moscow", "Moscow", "There is test",
-                "Talstoha Street", "Tverskaya Street");
-        accountListPage
+        Lead lead = new Lead("Joel", "Alfredo", "Tamiz", "1020058", "test.com",
+                "fdhdghgh", "salesforcetest@gmail.com", "5511566", "56165656", "TestRun",
+                "90", "wewvrwa", "gdrgdr", "5846464", "wrrrw", "sgwsg");
+        leadListPage
                 .open()
                 .clickNew()
-                .create(account)
+                .create(lead)
                 .openDetailsTab()
-                .validateAccount(account);
+                .validateLead(lead);
     }
 }
