@@ -10,7 +10,7 @@ public class AccountFactory {
         log.info("Create new Account");
         Faker faker = new Faker();
         return Account.builder()
-                .accountName("Test")
+                .accountName(faker.name().username())
                 .phone("375336575939")
                 .website("tut.by")
                 .employees("100")
