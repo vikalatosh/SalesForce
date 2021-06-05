@@ -1,5 +1,6 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+@Log4j2
 public abstract class BasePage {
-    String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//*[@slot='outputField']";
     public static final String BASE_URL = "https://erip.my.salesforce.com/";
+    String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//*[@slot='outputField']";
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -37,7 +40,7 @@ public abstract class BasePage {
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
                 expected,
-                "Element "+ label + " text is not correct"
+                "Element " + label + " text is not correct"
         );
     }
 

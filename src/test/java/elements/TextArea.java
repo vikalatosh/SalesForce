@@ -1,8 +1,10 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class TextArea {
     WebDriver driver;
     String label;
@@ -15,7 +17,7 @@ public class TextArea {
     }
 
     public void write(String text) {
-        System.out.printf("Writing text '%s' into textarea with label %s%n", text, label);
+        log.info(String.format("Writing text '%s' into textarea with label %s%n", text, label));
         //JS set style
         driver.findElement(By.xpath(String.format(textareaLocator, label))).sendKeys(text);
     }

@@ -1,11 +1,14 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import models.Contact;
+import models.ContactFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
+@Log4j2
 public class ContactTest extends BaseTest {
 
     @Test(description = "Contact should be created")
@@ -21,11 +24,8 @@ public class ContactTest extends BaseTest {
         //FACTORY
         //BUILDER
         //RANDOM DATA
-        Contact contact = new Contact("Tom", "--", "Smith", "12222",
-                "TestTest", "Title", "test@gmail.com", "9379992",
-                "375297365426", "department", "321336516", "6 vulica Talstoha",
-                "Grodno", "220025", "Grodno", "Belarus");
-        contactsListPage
+        Contact contact = ContactFactory.get();
+        contactListPage
                 .open()
                 .clickNew()
                 .create(contact)

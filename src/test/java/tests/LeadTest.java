@@ -1,18 +1,17 @@
 package tests;
 
 import lombok.extern.log4j.Log4j2;
-import models.Account;
-import models.AccountFactory;
+import models.Lead;
+import models.LeadFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
 @Log4j2
-public class AccountTest extends BaseTest {
-
-    @Test(description = "Account should be created")
-    public void accountShouldBeCreated() {
+public class LeadTest extends BaseTest {
+    @Test(description = "Lead should be created")
+    public void leadShouldBeCreated() {
         boolean isOpened = loginPage
                 .open()
                 .isPageOpened();
@@ -24,12 +23,12 @@ public class AccountTest extends BaseTest {
         //FACTORY
         //BUILDER
         //RANDOM DATA
-        Account account = AccountFactory.get();
-        accountListPage
+        Lead lead = LeadFactory.get();
+        leadListPage
                 .open()
                 .clickNew()
-                .create(account)
+                .create(lead)
                 .openDetailsTab()
-                .validateAccount(account);
+                .validateLead(lead);
     }
 }
