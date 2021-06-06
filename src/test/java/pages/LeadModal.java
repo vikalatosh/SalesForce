@@ -39,10 +39,10 @@ public class LeadModal extends BasePage {
         new LightningDropDown(driver, "Industry").select(lead.getIndustry());
         new LightningInput(driver, "Phone").write(lead.getPhone());
         new LightningInput(driver, "Mobile").write(lead.getMobile());
-        new LightningDropDown(driver, "Lead Source").select(lead.getLeadSource());
         new LightningInput(driver, "Country").write(lead.getCountry());
         new LightningDropDown(driver, "Rating").select(lead.getRating());
         new LightningInput(driver, "No. of Employees").write(lead.getNumberOfEmployees());
+        new LightningDropDown(driver, "Lead Source").select(lead.getLeadSource());
         new TextArea(driver, "Street").write(lead.getStreet());
         new LightningInput(driver, "City").write(lead.getCity());
         new LightningInput(driver, "State/Province").write(lead.getState());
