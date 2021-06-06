@@ -1,9 +1,7 @@
 package pages;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -45,7 +43,10 @@ public abstract class BasePage {
     }
 
     public void validateElements(String label, String[] expected) {
-        String addressText = driver.findElement(By.xpath(String.format(locator, label))).getText();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
+        js.executeScript("arguments[0].setAttribute('style','border: solid 2px white');", element);
+        String addressText = element.getText();
         for (String s : expected) {
             boolean isAddressCorrect = addressText.contains(s);
             assertTrue(isAddressCorrect, "Address text is not correct");
