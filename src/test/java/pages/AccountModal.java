@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 @Log4j2
 public class AccountModal extends BasePage {
-    public static final By SAVE_BUTTON = By.xpath("*[@title='Save']");
+    public static final By SAVE_BUTTON = By.xpath("//*[@title='Save']");
     public static final By ACCOUNTMODAL_TITLE = By.xpath("//h2[text()='New Account']");
 
     public AccountModal(WebDriver driver) {
