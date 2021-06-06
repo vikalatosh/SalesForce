@@ -2,7 +2,9 @@ package elements;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 @Log4j2
 public class SFDropDown {
@@ -19,7 +21,14 @@ public class SFDropDown {
 
     public void select(String option) {
         log.debug(String.format("Writing text '%s' into input with label %s", option, label));
-        driver.findElement(By.xpath(String.format(locator, label))).click();
+        WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
+        highlightElement(driver, element);
+        element.click();
         driver.findElement(By.xpath(String.format(optionLocator, option))).click();
+    }
+
+    public void highlightElement(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('style','border: solid 2px white');", element);
     }
 }

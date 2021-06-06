@@ -31,6 +31,6 @@ public class LightningDropDown {
 
     public void highlightElement(WebDriver driver, WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].setAttribute('style', 'background: #3cff3c; border: 2px solid red;');", element);
+        js.executeScript("arguments[0].setAttribute('style','border: solid 2px white');", element);
     }
 }
