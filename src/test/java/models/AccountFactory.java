@@ -26,6 +26,7 @@ public class AccountFactory {
                 .description("There is test")
                 .shippingStreet(faker.address().streetName())
                 .type("Analyst")
+                .parentAccount("TestTest")
                 .industry("Banking")
                 .build();
     }

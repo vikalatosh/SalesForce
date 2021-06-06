@@ -22,5 +22,6 @@ public class Account {
     String billingStreet;
     String shippingStreet;
     String type;
+    String parentAccount;
     String industry;
 }
