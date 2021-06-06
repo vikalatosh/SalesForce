@@ -49,7 +49,7 @@ public abstract class BasePage {
         String addressText = element.getText();
         for (String s : expected) {
             boolean isAddressCorrect = addressText.contains(s);
-            assertTrue(isAddressCorrect, "Address text is not correct");
+            assertTrue(isAddressCorrect, "Element text is not correct");
         }
     }
 }
