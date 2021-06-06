@@ -36,13 +36,14 @@ public class AccountDetailsPage extends BasePage {
         validateElement("Account Name", account.getAccountName());
         validateElement("Phone", account.getPhone());
         validateElement("Website", account.getWebsite());
+//        validateElements("Shipping Address", new String[]{account.getShippingCity(), account.getShippingCountry(),
+//                account.getShippingState(), account.getShippingStreet(), account.getShippingZipCode()});
         validateElement("Employees", account.getEmployees());
         validateElement("Type", account.getType());
         validateElement("Industry", account.getIndustry());
         validateElement("Description", account.getDescription());
+        validateElements("Parent Account", new String[]{account.getParentAccount()});
         validateElements("Billing Address", new String[]{account.getBillingCity(), account.getBillingCountry(),
                 account.getBillingState(), account.getBillingStreet(), account.getBillingZipCode()});
-        validateElements("Shipping Address", new String[]{account.getShippingCity(), account.getShippingCountry(),
-                account.getShippingState(), account.getShippingStreet(), account.getShippingZipCode()});
     }
 }
