@@ -5,10 +5,12 @@ import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static pages.AccountModal.SAVE_BUTTON;
 
 @Log4j2
 public class AccountDetailsPage extends BasePage {
-
     public static final By DETAILS_TAB = By.xpath("//div[contains(@class,'active')]//*[@id='detailTab__item']");
 
     public AccountDetailsPage(WebDriver driver) {
@@ -23,6 +25,7 @@ public class AccountDetailsPage extends BasePage {
     @Step("Open Account details page")
     public AccountDetailsPage openDetailsTab() {
         log.info("Open Account details page");
+        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(SAVE_BUTTON)));
         driver.findElement(DETAILS_TAB).click();
         return this;
     }
