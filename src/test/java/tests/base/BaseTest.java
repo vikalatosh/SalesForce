@@ -9,7 +9,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import pages.AccountListPage;
 import pages.ContactListPage;
 import pages.LeadListPage;
@@ -51,9 +54,9 @@ public abstract class BaseTest {
         leadListPage = new LeadListPage(driver);
     }
 
-    @Step("Close browser")
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
-    }
+//    @Step("Close browser")
+//    @AfterMethod(alwaysRun = true)
+//    public void tearDown() {
+//        driver.quit();
+//    }
 }

@@ -1,9 +1,11 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+@Log4j2
 public class SFInput {
     WebDriver driver;
     String label;
@@ -15,8 +17,7 @@ public class SFInput {
     }
 
     public void write(String text) {
-        System.out.printf("Writing text '%s' into input with label %s", text, label);
-        //JS set style
+        log.debug(String.format("Writing text '%s' into input with label %s", text, label));
         WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
         element.sendKeys(text);
     }

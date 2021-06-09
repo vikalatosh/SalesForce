@@ -1,8 +1,10 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class LightningDropDown {
     WebDriver driver;
     String label;
@@ -16,6 +18,7 @@ public class LightningDropDown {
     }
 
     public void select(String option) {
+        log.debug(String.format("Writing text '%s' into input with label %s", option, label));
         driver.findElement(By.xpath(String.format(locator, label))).click();
         driver.findElement(By.xpath(String.format(optionLocator, option))).click();
     }
