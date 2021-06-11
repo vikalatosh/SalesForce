@@ -24,9 +24,10 @@ public class LightningSearch {
 
     public void select(String option) {
         log.debug(String.format("Writing text '%s' into input with label %s", option, label));
-        wait = new WebDriverWait(driver, 15);
         WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
+        highlightElement(driver, element);
         element.click();
+        wait = new WebDriverWait(driver, 5);
         element = driver.findElement(By.xpath(String.format(optionLocator, option)));
 //        highlightElement(driver, element);
         element.click();
