@@ -2,7 +2,7 @@ package pages;
 
 import elements.SFDropDown;
 import elements.SFInput;
-import elements.Search;
+import elements.SFSearch;
 import elements.TextArea;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
@@ -43,7 +43,7 @@ public class AccountModal extends BasePage {
         new SFInput(driver, "Shipping City").write(account.getShippingCity());
         new SFInput(driver, "Shipping State/Province").write(account.getShippingState());
         new SFDropDown(driver, "Type").select(account.getType());
-        new Search(driver, "Parent Account").select(account.getParentAccount());
+        new SFSearch(driver, "Parent Account").select(account.getParentAccount());
         new SFDropDown(driver, "Industry").select(account.getIndustry());
         new TextArea(driver, "Description").write(account.getDescription());
         new TextArea(driver, "Billing Street").write(account.getBillingStreet());

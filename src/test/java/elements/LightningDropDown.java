@@ -5,10 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
 public class LightningDropDown {
     WebDriver driver;
+    WebDriverWait wait;
     String label;
     String locator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::*[contains(@class," +
             "'slds-form-element')]//*[contains(@class,'slds-combobox_container')]//input";
@@ -21,11 +23,12 @@ public class LightningDropDown {
 
     public void select(String option) {
         log.debug(String.format("Writing text '%s' into input with label %s", option, label));
+        wait = new WebDriverWait(driver, 15);
         WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
         highlightElement(driver, element);
         element.click();
         element = driver.findElement(By.xpath(String.format(optionLocator, option)));
-        highlightElement(driver, element);
+//        highlightElement(driver, element);
         element.click();
     }
 

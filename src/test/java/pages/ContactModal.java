@@ -2,6 +2,7 @@ package pages;
 
 import elements.LightningDropDown;
 import elements.LightningInput;
+import elements.LightningSearch;
 import elements.TextArea;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
@@ -32,7 +33,7 @@ public class ContactModal extends BasePage {
         new LightningInput(driver, "Middle Name").write(contact.getMiddleName());
         new LightningInput(driver, "Last Name").write(contact.getLastName());
         new LightningInput(driver, "Suffix").write(contact.getSuffix());
-        new LightningDropDown(driver, "Account Name").select(contact.getAccountName());
+        new LightningSearch(driver, "Account Name").select(contact.getAccountName());
         new LightningInput(driver, "Title").write(contact.getTitle());
         new LightningInput(driver, "Department").write(contact.getDepartment());
         new LightningInput(driver, "Email").write(contact.getEmail());

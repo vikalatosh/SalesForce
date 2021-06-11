@@ -1,3 +1,4 @@
+
 package elements;
 
 import lombok.extern.log4j.Log4j2;
@@ -8,15 +9,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
-public class SFDropDown {
+public class LightningSearch {
     WebDriver driver;
     WebDriverWait wait;
     String label;
     String locator = "//*[contains(@class,'modal-body')]//*[text()='%s']/ancestor::*[contains(@class," +
-            "'slds-form-element')]//a";
-    String optionLocator = "//*[contains(@class,'uiMenuList') and contains(@class,'visible')]//a[@title='%s']";
+            "'slds-form-element')]//*[contains(@class,'slds-combobox_container')]//input";
+    String optionLocator = "//*[contains(@class,'modal-body')]//*[contains(@class,'slds-form-element')]//span[@title='%s']";
 
-    public SFDropDown(WebDriver driver, String label) {
+    public LightningSearch(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
     }
@@ -24,10 +25,9 @@ public class SFDropDown {
     public void select(String option) {
         log.debug(String.format("Writing text '%s' into input with label %s", option, label));
         WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
-        highlightElement(driver, element);
         element.click();
-        wait = new WebDriverWait(driver, 3);
         element = driver.findElement(By.xpath(String.format(optionLocator, option)));
+        wait = new WebDriverWait(driver, 15);
         highlightElement(driver, element);
         element.click();
     }
