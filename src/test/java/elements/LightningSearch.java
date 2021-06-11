@@ -28,6 +28,7 @@ public class LightningSearch {
         element.click();
         wait = new WebDriverWait(driver, 5);
         element = driver.findElement(By.xpath(String.format(optionLocator, option)));
+        highlightElement(driver, element);
         element.click();
     }
 
