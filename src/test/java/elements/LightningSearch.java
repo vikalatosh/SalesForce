@@ -28,7 +28,7 @@ public class LightningSearch {
         WebElement element = driver.findElement(By.xpath(String.format(locator, label)));
         element.click();
         element = driver.findElement(By.xpath(String.format(optionLocator, option)));
-//        highlightElement(driver, element);
+        highlightElement(driver, element);
         element.click();
     }
 
